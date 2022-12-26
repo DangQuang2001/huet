@@ -8,7 +8,7 @@ class UserController {
     const user = new User(req.body);
     user
       .save()
-      .then((user) => res.status(200).send({ user }))
+      .then((user) => res.status(200).json(user))
       .catch((error) =>
         res.status(403).json({
           message: "Loi",
