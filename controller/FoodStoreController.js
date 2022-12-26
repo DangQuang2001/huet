@@ -33,7 +33,8 @@ class FoodStoreController {
   //Tim top san pham rating cao
   getTop(req, res, next) {
     foodStore
-      .find({ $where: "this.menu.length > 10" }, null, { limit: 10 })
+      .find({ Menu: { $gt: { $size: 10 } } })
+      .limit(10)
       .then((data) => res.json(data))
       .catch((error) => res.status(400).json({ message: "cc" }));
   }
