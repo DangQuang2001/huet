@@ -7,6 +7,7 @@ const Favourite = new Schema(
     name: { type: String },
     address: { type: String },
     image: { type: String },
+    category: { type: Number },
   },
   {
     timestamps: true,

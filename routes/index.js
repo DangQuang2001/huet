@@ -56,5 +56,9 @@ routes.get("/user", user_controller.getAllUsers); //get All User
 //Favourite
 routes.post("/favourite/create", FavouriteController.addFavourite); // Add Favourite
 routes.get("/favourite", FavouriteController.getAllFavourites); // Get all Favourite
+routes.delete(
+  "/favourite/delete/:category/:id",
+  FavouriteController.deleteFavourite
+); // Delete Favourite
 
 module.exports = routes;

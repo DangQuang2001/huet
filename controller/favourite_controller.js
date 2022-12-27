@@ -17,5 +17,14 @@ class FavouriteController {
       .then((data) => res.json(data))
       .catch((error) => next(error));
   }
+  deleteFavourite(req, res, next) {
+    favourite
+      .findOneAndRemove({
+        id: req.params.id,
+        category: parseInt(req.params.category),
+      })
+      .then((data) => res.json(data))
+      .catch((error) => next(error));
+  }
 }
 module.exports = new FavouriteController();
