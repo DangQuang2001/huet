@@ -13,7 +13,7 @@ class FavouriteController {
   }
   getAllFavourites(req, res, next) {
     favourite
-      .find({})
+      .find({ userID: req.params.userID })
       .then((data) => res.json(data))
       .catch((error) => next(error));
   }
@@ -22,13 +22,14 @@ class FavouriteController {
       .findOneAndRemove({
         id: req.params.id,
         category: parseInt(req.params.category),
+        userID: req.params.userID,
       })
       .then((data) => res.json(data))
       .catch((error) => next(error));
   }
   filterFavourites(req, res, next) {
     favourite
-      .find({ category: req.params.category })
+      .find({ category: req.params.category, userID: req.params.userID })
       .then((data) => res.json(data))
       .catch((error) => next(error));
   }

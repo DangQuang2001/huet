@@ -8,6 +8,7 @@ const Favourite = new Schema(
     address: { type: String },
     image: { type: String },
     category: { type: Number },
+    userID: { type: String, require: true, unique: true },
   },
   {
     timestamps: true,

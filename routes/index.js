@@ -55,11 +55,14 @@ routes.get("/user", user_controller.getAllUsers); //get All User
 
 //Favourite
 routes.post("/favourite/create", FavouriteController.addFavourite); // Add Favourite
-routes.get("/favourite", FavouriteController.getAllFavourites); // Get all Favourite
+routes.get("/favourite/:userID", FavouriteController.getAllFavourites); // Get all Favourite
 routes.delete(
-  "/favourite/delete/:category/:id",
+  "/favourite/delete/:userID/:category/:id",
   FavouriteController.deleteFavourite
 ); // Delete Favourite
-routes.get("/favourite/:category", FavouriteController.filterFavourites); // Get all Favourite
+routes.get(
+  "/favourite/:userID/:category",
+  FavouriteController.filterFavourites
+); // Get all Favourite
 
 module.exports = routes;
