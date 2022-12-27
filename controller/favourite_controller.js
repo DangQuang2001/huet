@@ -26,5 +26,11 @@ class FavouriteController {
       .then((data) => res.json(data))
       .catch((error) => next(error));
   }
+  filterFavourites(req, res, next) {
+    favourite
+      .find({ category: req.params.category })
+      .then((data) => res.json(data))
+      .catch((error) => next(error));
+  }
 }
 module.exports = new FavouriteController();

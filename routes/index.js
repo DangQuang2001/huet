@@ -60,5 +60,6 @@ routes.delete(
   "/favourite/delete/:category/:id",
   FavouriteController.deleteFavourite
 ); // Delete Favourite
+routes.get("/favourite/:category", FavouriteController.filterFavourites); // Get all Favourite
 
 module.exports = routes;
