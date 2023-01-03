@@ -22,12 +22,12 @@ class EventController {
     let now = new Date();
     Event.find({
       begin: {
-        $gte: new Date(`2022-${now.getMonth() + 1}-01T00:00:00.000Z`),
+        $gte: new Date(`2022-0${now.getMonth() + 1}-01T00:00:00.000Z`),
         $lte: new Date(
           `${
             now.getMonth() == 11 ? now.getFullYear() + 1 : now.getFullYear()
           }-${
-            now.getMonth() == 11 ? "01" : now.getMonth() + 1
+            now.getMonth() == 11 ? "01" : `0${now.getMonth() + 1}`
           }-20T00:00:00.000Z`
         ),
       },
@@ -43,14 +43,14 @@ class EventController {
           `${
             now.getMonth() == 11 ? now.getFullYear() + 1 : now.getFullYear()
           }-${
-            now.getMonth() == 11 ? "01" : now.getMonth() + 2
+            now.getMonth() == 11 ? "01" : `0${now.getMonth() + 1}`
           }-01T00:00:00.000Z`
         ),
         $lte: new Date(
           `${
             now.getMonth() == 11 ? now.getFullYear() + 1 : now.getFullYear()
           }-${
-            now.getMonth() == 11 ? "02" : now.getMonth() + 2
+            now.getMonth() == 11 ? "02" : `0${now.getMonth() + 1}`
           }-20T00:00:00.000Z`
         ),
       },
